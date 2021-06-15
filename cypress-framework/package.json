@@ -1,0 +1,27 @@
+{
+  "name": "cypress-framework",
+  "version": "1.0.0",
+  "description": "Cypress Homework Assist",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open"
+  },
+  "keywords": [
+    "automation",
+    "test",
+    "homework"
+  ],
+  "author": "Radu Mihail Oana",
+  "license": "ISC",
+  "devDependencies": {
+    "@aternus/csv-to-xlsx": "^1.0.19",
+    "csvdata": "^1.1.1",
+    "cvs": "^0.6.8",
+    "cypress": "^7.5.0",
+    "cypress-file-upload": "^5.0.7",
+    "cypress-real-events": "^1.5.0"
+  },
+  "dependencies": {
+    "type-detect": "^4.0.8"
+  }
+}

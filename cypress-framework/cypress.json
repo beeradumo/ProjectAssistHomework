@@ -1,0 +1,14 @@
+{
+   "reporter": "mochawesome",
+   "reporterOptions": {
+   "charts": true,
+   "overwrite": false,
+   "html": true,
+   "json": true,
+   "timestamp": "mmddyyyy_HHMMss",
+   "reportDir": "cypress/reports/",
+   "reportFilename": "report"
+  },
+  "screenshotsFolder": "cypress/report/assets",
+  "chromeWebSecurity": false
+}
