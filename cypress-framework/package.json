@@ -14,7 +14,6 @@
   "author": "Radu Mihail Oana",
   "license": "ISC",
   "devDependencies": {
-    "@aternus/csv-to-xlsx": "^1.0.19",
     "csvdata": "^1.1.1",
     "cvs": "^0.6.8",
     "cypress": "^7.5.0",

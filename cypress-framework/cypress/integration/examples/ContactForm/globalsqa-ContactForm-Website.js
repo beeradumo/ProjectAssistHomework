@@ -1,5 +1,6 @@
+const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
-const pathCSV = 'E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/AssistHomework-website.csv';
+const pathCSV = `${gitPathProject}/fixtures/AssistHomework-website.csv`;
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
@@ -7,13 +8,14 @@ const inputWeb = 'input[name="g2599-website"]';
 const inputExperience = 'select[name="g2599-experienceinyears"]';
 const inputComment = 'textarea[name="g2599-comment"]';
 
-//Test Contact form with "Name and Email field" empty
 
 describe('Test Contact form "Website field"', () => {
     before(() =>{
         cy.visit('https://www.globalsqa.com/samplepagetest/')
     })
 
+    //Test Contact form with "Name and Email field" empty
+    
     context('Test scenario "Website field" with "Name and Email field" empty', () => {
 
         it(`TC 1, Field Website can be empty ""`, () =>{

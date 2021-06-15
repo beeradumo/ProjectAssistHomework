@@ -1,5 +1,6 @@
+const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
-const pathCSV = 'E:/Automation Test/Cypress/cypress-framework/cypress/integration/examples/Widgets/Spinner.csv';
+const pathCSV = `${gitPathProject}/integration/examples/Widgets/Spinner.csv`;
 
 describe('Test the WIDGETS menu', () => {
     beforeEach(() =>{
@@ -91,7 +92,11 @@ cy.writeFile(pathCSV, `13 ,Verify "Simple Spinner" tab active ,Testing "Simple S
             
         cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
             
-            cy.get('p').eq(0).find('input#spinner.ui-spinner-input').should('have.class', 'ui-spinner-input').and('have.value', '')
+            cy.get('input#spinner[name="value"]')
+                .should('have.attr', 'name', 'value')
+                .should('have.class', 'ui-spinner-input')
+                .and('have.value', '')
+
 cy.writeFile(pathCSV, `14 ,Verify "Select a value" field ,Testing "Select a value" to be default '' ,1)Click on Simple Spinner tab , 'https://www.globalsqa.com/demo-site/spinner/#Simple%20Spinner' ,Select a value field should have default value '' ,Select a value field have default value '' ,Cypress ,Pass\n`, {flag:'a+'})
             
                 cy.get('a[class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"]')
@@ -118,6 +123,7 @@ cy.writeFile(pathCSV, `16 ,Verify "Toggle disable/enable" button ,Need to disabl
                 .and('have.text', 'Toggle widget').click({force: true})
 
                 cy.get('p').eq(0).find('input#spinner').should('have.value', 1).clear().type('7').should('have.value', 7)
+                    .should('have.attr', 'name', 'value')
                     .should('not.have.class', 'ui-spinner-input' )
                     .and('not.have.attr', 'aria-valuenow')
 cy.writeFile(pathCSV, `17 ,Verify "Toggle widget" button ,Toggle "Select a value" field to a textbox field ,1)Click on Toggle widget button         2)Type 7, '7' ,Select a value field should be a textbox with value '7' ,Select a value field is a textbox with value '7' ,Cypress ,Pass\n`, {flag:'a+'})

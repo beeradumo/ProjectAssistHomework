@@ -1,9 +1,10 @@
+const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
 const inputExperience = 'select[name="g2599-experienceinyears"]';
 
-const pathCSV = 'E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/AssistHomework-email.csv';
+const pathCSV = `${gitPathProject}/fixtures/AssistHomework-email.csv`;
 
 
 
@@ -33,13 +34,16 @@ cy.writeFile(pathCSV, `1 ,Verify textbox email with "Name field" empty' ,Email f
         })
 
         it(`TC 2, First character cannot be space " "`, () =>{
-cy.writeFile(pathCSV, `2 ,Verify textbox Email with "Name field" empty ,First character cannot be space ,1)Click on Email field      2)Press on space button      3)Press Enter , ' ' ,Name field should be focused and have require message -Please fill out this field ,Name field is focused and have require message -Please fill out this field. ,Cypress ,Pass\n`, {flag:'a+'})           
+cy.writeFile(pathCSV, `2 ,Verify textbox Email with "Name field" empty ,First character cannot be space ,1)Click on Email field      2)Press on space button      3)Press Enter , ' ' ,Name field should be focused and have require message -Please fill out this field ,Name field is focused and have require message -Please fill out this field. ,Manual ,Pass\n`, {flag:'a+'})           
 
-        cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
+        // cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
+        //     cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ')
+        cy.log('pentru ca atributul type este email, nu lasa pe cypress sa scrie doar spatiu')
+
+        cy.get(inputEmail).should('have.attr', 'type', 'email')
             cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ')
-
             cy.get(inputNume).should('have.value', '').and('be.focus')
-        cy.get(inputEmail).invoke('attr', 'type', 'email').should('have.attr', 'type', 'email')
+        
             
         
             cy.on('window:alert', (str) => {
@@ -133,13 +137,14 @@ cy.writeFile(pathCSV, `7 ,Verify textbox email with "Name field" filled ,Email f
         })
 
         it(`TC 8, First character cannot be space " "`, () =>{
-cy.writeFile(pathCSV, `8 ,Verify textbox Email with "Name field" filled ,First character cannot be space ,1)Click on Email field      2)Press on space button      3)Press Enter , ' ' ,Should be focused and have require message -Please fill out this field ,Is focused and have require message -Please fill out this field ,Cypress ,Pass\n`, {flag:'a+'})           
+cy.writeFile(pathCSV, `8 ,Verify textbox Email with "Name field" filled ,First character cannot be space ,1)Click on Email field      2)Press on space button      3)Press Enter , ' ' ,Should be focused and have require message -Please fill out this field ,Is focused and have require message -Please fill out this field ,Manual ,Pass\n`, {flag:'a+'})           
 
-        cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
-            cy.get(inputEmail).clear().type(' ').should('have.value', ' ')
-    
-        cy.get(inputEmail).invoke('attr', 'type', 'email').should('have.attr', 'type', 'email')
-            cy.get(inputEmail).clear().type(' {enter}').should('be.focus')
+        //cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
+            //cy.get(inputEmail).clear().type(' ').should('have.value', ' ')
+    cy.log('pentru ca atributul type este email, nu lasa pe cypress sa scrie doar spatiu')
+
+        cy.get(inputEmail).should('have.attr', 'type', 'email')
+            cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ').and('be.focus')
 
             cy.on('window:alert', (str) => {
                 expect(str).to.equal('Good Luck. Go for it')

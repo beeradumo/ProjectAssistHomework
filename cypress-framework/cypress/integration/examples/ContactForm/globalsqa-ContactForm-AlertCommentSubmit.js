@@ -1,3 +1,4 @@
+const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
@@ -5,7 +6,7 @@ const inputAlert = 'button[onclick="myFunction()"]';
 const inputComment = 'textarea[name="g2599-comment"]';
 const inputSubmit = 'button[type="submit"]';
 
-const pathCSV = 'E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/AssistHomework-ACS.csv';
+const pathCSV = `${gitPathProject}/fixtures/AssistHomework-ACS.csv`;
 
 describe('Test Contact form "ALERT BOX : CLICK HERE" button', () => {
     before(() =>{

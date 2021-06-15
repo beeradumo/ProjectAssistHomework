@@ -1,10 +1,11 @@
+const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
-let InvalidDataN = require('E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/dataName.json');
-let InvalidDataC = require('E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/dataComm.json');
-let InvalidDataE = require('E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/dataEmail.json');
-let InvalidDataW = require('E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/dataWebsite.json');
+let InvalidDataN = require('../../../fixtures/dataName.json');
+let InvalidDataC = require(`../../../fixtures/dataComm.json`);
+let InvalidDataE = require(`../../../fixtures/dataEmail.json`);
+let InvalidDataW = require(`../../../fixtures/dataWebsite.json`);
 
-const pathCSV = 'E:/Automation Test/Cypress/cypress-framework/cypress/fixtures/AssistHomework-Dynamic.csv';
+const pathCSV = `${gitPathProject}/fixtures/AssistHomework-Dynamic.csv`;
 const filePath = 'photoS.jpg'
 
 const inputNume = '#g2599-name';
@@ -137,7 +138,7 @@ describe('Test Contact form', () => {
                     console.log(actual)  
                         const actualCSV = actual.join('; ')
 
-    cy.writeFile(pathCSV, `36, Select "Experence in year", Values in select option to be equals ,1)Click on select option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress, pass \n`, {flag:'a+'})
+    cy.writeFile(pathCSV, `36, Select "Experence in year", Values in select option to be equals ,1)Click on select option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress ,pass\n`, {flag:'a+'})
                             
                 })
 
@@ -157,7 +158,7 @@ describe('Test Contact form', () => {
                 console.log(actual)
                     const actualCSV = actual.join("; ")
 
-    cy.writeFile(pathCSV, `37, Verify checkbox "Expertise", Values in checkbox option to be equals ,1)Click on checkbox option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress, pass \n`, {flag:'a+'})            
+    cy.writeFile(pathCSV, `37, Verify checkbox "Expertise", Values in checkbox option to be equals ,1)Click on checkbox option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress ,pass\n`, {flag:'a+'})            
             })
         })   
     })
@@ -175,7 +176,7 @@ describe('Test Contact form', () => {
                 console.log(actual)
                     const actualCSV = actual.join("; ")
 
-    cy.writeFile(pathCSV, `38, Verify radio label "Expertise", Values in radio label option to be equals ,1)Click on radio label option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress, pass \n`, {flag:'a+'})
+    cy.writeFile(pathCSV, `38, Verify radio label "Expertise", Values in radio label option to be equals ,1)Click on radio label option automatic, '${actualCSV}', Values should be equal, Values are equal, Cypress ,pass\n`, {flag:'a+'})
             })
         })   
     })
@@ -186,14 +187,14 @@ describe('Test Contact form', () => {
             cy.get(inputAlert).should('have.css','background-color', 'rgb(68, 68, 68)')
                 .should('contain.text', 'Alert Box : Click Here')
 
-    cy.writeFile(pathCSV, `39, Verify button ALERT BOX, Verify color grey on button ALERT BOX,1)Open the webpage ,  , The button color should be rgb(68; 68; 68), The button color is rgb(68; 68; 68), Cypress, pass  \n`, {flag:'a+'})                 
+    cy.writeFile(pathCSV, `39, Verify button ALERT BOX, Verify color grey on button ALERT BOX,1)Open the webpage ,  , The button color should be rgb(68; 68; 68), The button color is rgb(68; 68; 68), Cypress ,pass\n`, {flag:'a+'})                 
         })
         
         it('Test case 40, Test functionality button ALERT BOX : hover color', () => {
             cy.get(inputAlert).invoke('css', 'background-color', 'rgb(7, 190, 229)').trigger('mouseover')
                 .should('have.css','background-color', 'rgb(7, 190, 229)').trigger('mouseleave')
     
-    cy.writeFile(pathCSV, `40, Verify button ALERT BOX, Verify hover color on button ALERT BOX,1)Open the webpage        2)Hover mouse on,  , The hover color should be rgb(7; 190; 229), The hover color is rgb(7; 190; 229), Cypress, pass \n`, {flag:'a+'})            
+    cy.writeFile(pathCSV, `40, Verify button ALERT BOX, Verify hover color on button ALERT BOX,1)Open the webpage        2)Hover mouse on,  , The hover color should be rgb(7; 190; 229), The hover color is rgb(7; 190; 229), Cypress ,pass\n`, {flag:'a+'})            
         })
 
         it('Test case 41, Test functionality button ALERT BOX : Confirm message', () => { 
@@ -201,7 +202,7 @@ describe('Test Contact form', () => {
             cy.on('window:confirm', (str) => {
                 expect(str).to.equal('Do you really fill rest of the form?')
 
-    cy.writeFile(pathCSV, `41, Verify button ALERT BOX, Verify confirm on button ALERT BOX,1)Open the webpage        2)Click on button,  ,The confirm message -${str} should be visible, The confirm message -${str} is visible, Cypress, pass \n`, {flag:'a+'})               
+    cy.writeFile(pathCSV, `41, Verify button ALERT BOX, Verify confirm on button ALERT BOX,1)Open the webpage        2)Click on button,  ,The confirm message -${str} should be visible, The confirm message -${str} is visible, Cypress ,pass\n`, {flag:'a+'})               
             })
         }) 
            
@@ -210,7 +211,7 @@ describe('Test Contact form', () => {
             cy.on('window:alert', (str) => {
                  expect(str).to.equal('Good Luck. Go for it')
 
-    cy.writeFile(pathCSV, `42, Verify button ALERT BOX, Verify alert on button ALERT BOX,1)Open the webpage        2)Click on button,  ,The alert message -${str} should be visible, The message alert -${str} is visible, Cypress, pass \n`, {flag:'a+'})            
+    cy.writeFile(pathCSV, `42, Verify button ALERT BOX, Verify alert on button ALERT BOX,1)Open the webpage        2)Click on button,  ,The alert message -${str} should be visible, The message alert -${str} is visible, Cypress ,pass\n`, {flag:'a+'})            
              })
         })
                
@@ -249,28 +250,28 @@ describe('Test Contact form', () => {
             cy.get(inputSubmit).should('have.css','background-color', 'rgb(68, 68, 68)')
                 .should('contain.text', 'Submit')
     
-    cy.writeFile(pathCSV, `47, Verify button SUBMIT, Verify color grey on button Submit ,1)Open the webpage ,  , The button color should be rgb(68; 68; 68), The button color is rgb(68; 68; 68), Cypress, pass  \n`, {flag:'a+'})                 
+    cy.writeFile(pathCSV, `47, Verify button SUBMIT, Verify color grey on button Submit ,1)Open the webpage ,  , The button color should be rgb(68; 68; 68), The button color is rgb(68; 68; 68), Cypress ,pass\n`, {flag:'a+'})                 
         })
             
         it('Test case 48, Test functionality button SUBMIT hover color', () => {
             cy.get(inputSubmit).invoke('css', 'background-color', 'rgb(7, 190, 229)').trigger('mouseover')
                 .should('have.css','background-color', 'rgb(7, 190, 229)').trigger('mouseleave')
         
-    cy.writeFile(pathCSV, `48, Verify button SUBMIT, Verify hover color on button Submit ,1)Open the webpage        2)Hover mouse on,  , The hover color should be rgb(7; 190; 229), The hover color is rgb(7; 190; 229), Cypress, pass \n`, {flag:'a+'})            
+    cy.writeFile(pathCSV, `48, Verify button SUBMIT, Verify hover color on button Submit ,1)Open the webpage        2)Hover mouse on,  , The hover color should be rgb(7; 190; 229), The hover color is rgb(7; 190; 229), Cypress ,pass\n`, {flag:'a+'})            
         })
 
         it('Test case 49, Test functionality button SUBMIT contact form', () => {
             cy.get(inputSubmit).click()
                 cy.url().should('contain', 'contact-form-hash=7451d6322607909818ec6641508a0315d590839b')
    
-    cy.writeFile(pathCSV, `49, Verify button SUBMIT, Verify Submit link for form ,1)Open the webpage        2)Click on Submit,  ,The link should contain 'contact-form-hash=7451d6322607909818ec6641508a0315d590839b', The link contain 'contact-form-hash=7451d6322607909818ec6641508a0315d590839b', Cypress, pass \n`, {flag:'a+'})            
+    cy.writeFile(pathCSV, `49, Verify button SUBMIT, Verify Submit link for form ,1)Open the webpage        2)Click on Submit,  ,The link should contain 'contact-form-hash=7451d6322607909818ec6641508a0315d590839b', The link contain 'contact-form-hash=7451d6322607909818ec6641508a0315d590839b', Cypress ,pass\n`, {flag:'a+'})            
         }) 
 
         it('Test case 50, Test functionality button SUBMIT hover color', () => {
                 cy.get('a[href*="/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b"]').click()
                 cy.url().should('be.eq','https://www.globalsqa.com/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b')        
     
-    cy.writeFile(pathCSV, `50, Verify button back to form, Verify the link for back to form ,1)Open the webpage        2)Click on Submit      3)Click on link Back,  ,The link should be 'https://www.globalsqa.com/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b', The link is 'https://www.globalsqa.com/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b', Cypress, pass \n`, {flag:'a+'})                    
+    cy.writeFile(pathCSV, `50, Verify button back to form, Verify the link for back to form ,1)Open the webpage        2)Click on Submit      3)Click on link Back,  ,The link should be 'https://www.globalsqa.com/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b', The link is 'https://www.globalsqa.com/samplepagetest/?contact-form-hash=7451d6322607909818ec6641508a0315d590839b', Cypress ,pass\n`, {flag:'a+'})                    
         }) 
     })
 
