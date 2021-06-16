@@ -38,13 +38,11 @@ cy.writeFile(pathCSV, `2 ,Verify textbox Email with "Name field" empty ,First ch
 
         // cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
         //     cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ')
-        cy.log('pentru ca atributul type este email, nu lasa pe cypress sa scrie doar spatiu')
+        cy.log('pentru ca atributul type este email, nu ma lasa sa scriu doar spatiu, va returna valoare null')
 
         cy.get(inputEmail).should('have.attr', 'type', 'email')
             cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ')
             cy.get(inputNume).should('have.value', '').and('be.focus')
-        
-            
         
             cy.on('window:alert', (str) => {
                 expect(str).to.equal('Good Luck. Go for it')
@@ -141,7 +139,7 @@ cy.writeFile(pathCSV, `8 ,Verify textbox Email with "Name field" filled ,First c
 
         //cy.get(inputEmail).invoke('attr', 'type', 'text').should('have.attr', 'type', 'text')
             //cy.get(inputEmail).clear().type(' ').should('have.value', ' ')
-    cy.log('pentru ca atributul type este email, nu lasa pe cypress sa scrie doar spatiu')
+    cy.log('pentru ca atributul type este email, nu ma lasa sa scriu doar spatiu, va returna valoare null')
 
         cy.get(inputEmail).should('have.attr', 'type', 'email')
             cy.get(inputEmail).clear().type(' {enter}').should('have.value', ' ').and('be.focus')
