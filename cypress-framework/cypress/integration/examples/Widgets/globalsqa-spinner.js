@@ -91,7 +91,7 @@ cy.writeFile(pathCSV, `13 ,Verify "Simple Spinner" tab active ,Testing "Simple S
             .and('have.attr', 'rel-title', 'Simple Spinner')
             
         cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
-            
+            cy.wait(2000)
             cy.get('input#spinner[name="value"]')
                 .should('have.attr', 'name', 'value')
                 .should('have.class', 'ui-spinner-input')
