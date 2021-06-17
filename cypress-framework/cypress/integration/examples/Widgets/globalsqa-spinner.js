@@ -1,6 +1,5 @@
-const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
-const pathCSV = `${gitPathProject}/integration/examples/Widgets/Spinner.csv`;
+const pathCSV = `cypress/integration/examples/Widgets/Spinner.csv`;
 
 describe('Test the WIDGETS menu', () => {
     beforeEach(() =>{
@@ -31,8 +30,12 @@ describe('Test the WIDGETS menu', () => {
             cy.url().should('contain', '#Currency')
 cy.writeFile(pathCSV, `1 ,Verify "Currency" tab active ,Testing "Currency" tab to have blue line ,1)Click on Currency tab , 'https://www.globalsqa.com/demo-site/spinner/#Currency' ,Currency tab should have a blue line and show iframe for currency ,Currency tab have a blue line and show iframe for currency ,Cypress ,Pass\n`, {flag:'a+'})
 
-        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+        cy.get('div[aria-labelledby="tab_item-0"]').should('have.class', 'single_tab_div resp-tab-content resp-tab-content-active')
+            .and('have.attr', 'rel-title', 'Currency')
 
+        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).should('have.attr', 'data-src', '../../demoSite/practice/spinner/currency.html').iframe(() => {
+
+            cy.get('p').should('have.length', 2, {timeout: 10 * 1000})
             cy.get('p').eq(0).find('input#spinner')
                 .should('have.value', '$5.00').should('have.class', 'ui-spinner-input')
                 .should('have.attr', 'aria-valuemin', 5).should('have.attr', 'aria-valuenow', 5).and('have.attr','aria-valuemax', 2500)
@@ -80,7 +83,7 @@ cy.writeFile(pathCSV, `12 ,Verify "Amount to donate" field ,Amount value need to
         })
     }) 
 
-    it('SPINNER :: Simple Spinner', () => {
+    it.only('SPINNER :: Simple Spinner', () => {
 
         cy.get('li[id="Simple Spinner"]').click({force: true}).should('have.class', 'resp-tab-item resp-tab-active')
             .and('have.attr', 'aria-controls', 'tab_item-1')
@@ -91,10 +94,11 @@ cy.writeFile(pathCSV, `13 ,Verify "Simple Spinner" tab active ,Testing "Simple S
             .and('have.attr', 'rel-title', 'Simple Spinner')
             
         cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
-            cy.wait(2000)
-            cy.get('input#spinner[name="value"]')
-                .should('have.attr', 'name', 'value')
+            cy.wait(4000)
+            cy.get('p').should('have.length', 3, {timeout: 10 * 1000})
+            cy.get('p').eq(0).find('input#spinner.ui-spinner-input')
                 .should('have.class', 'ui-spinner-input')
+                .should('have.attr', 'name', 'value')
                 .and('have.value', '')
 
 cy.writeFile(pathCSV, `14 ,Verify "Select a value" field ,Testing "Select a value" to be default '' ,1)Click on Simple Spinner tab , 'https://www.globalsqa.com/demo-site/spinner/#Simple%20Spinner' ,Select a value field should have default value '' ,Select a value field have default value '' ,Cypress ,Pass\n`, {flag:'a+'})

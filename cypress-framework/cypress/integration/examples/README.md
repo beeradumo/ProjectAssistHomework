@@ -16,5 +16,6 @@ Teme optionale
 Widgets
     globalsqa-spinner.js
 
-        Din cauza ca ruleza in 'iframe', si doua pagini diferite folosesc acelasi input cu acelasi nume, se intampla sa esueze. 
-        Dar pentru ca suntem testeri, 1 din 7 teste va funtiona. :))
+        Nu inteleg de ce 1 din n teste cu nimic cod modificat, functioneaza, restul esueaza
+
+        Eu presupun ca din cauza ca este rulat in 'iframe', si doua pagini de 'iframe' diferite folosesc acelasi input cu acelasi nume si aceeasi clasa, se intampla sa esueze. 

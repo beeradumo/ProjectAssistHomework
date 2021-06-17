@@ -157,7 +157,7 @@ describe('Test the INTERACTION menu', () => {
             })
     }) 
 
-    it.only('Sortable :: SIMPLE LIST', () => {
+    it('Sortable :: SIMPLE LIST', () => {
 
         cy.get('li[id="Simple List"]')
         .contains('Simple List').click({force: true})
