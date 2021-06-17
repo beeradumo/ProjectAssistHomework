@@ -83,7 +83,7 @@ cy.writeFile(pathCSV, `12 ,Verify "Amount to donate" field ,Amount value need to
         })
     }) 
 
-    it.only('SPINNER :: Simple Spinner', () => {
+    it('SPINNER :: Simple Spinner', () => {
 
         cy.get('li[id="Simple Spinner"]').click({force: true}).should('have.class', 'resp-tab-item resp-tab-active')
             .and('have.attr', 'aria-controls', 'tab_item-1')
