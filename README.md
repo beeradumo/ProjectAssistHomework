@@ -2,10 +2,21 @@
  
 Necesita instalate urmatoarele pachete de cypress frame-work
 
-npm install csvdata --save-dev
-npm install cvs -- save-dev
-npm install cypress-file-upload --save-dev
-npm install cypress-real-events --save-dev
+npx cypress open
+
+npm install csvdata cvs cypress-file-upload cypress-real-events --save-dev
+
+cypress/support/commands.js
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+})
+Cypress.Commands.overwrite('type', (originalFn, subject, str, options) => { 
+    if (str !== '') {
+      return originalFn(subject, str, options)
+    }
+    return subject
+})
 
 Pentru a rula testele cypress folosesc
 

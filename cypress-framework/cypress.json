@@ -1,4 +1,6 @@
 {
   "screenshotsFolder": "cypress/report/assets",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "viewportWidth": 1300,
+  "viewportHeight": 960
 }
