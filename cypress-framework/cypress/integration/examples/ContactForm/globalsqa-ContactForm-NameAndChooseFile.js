@@ -1,4 +1,3 @@
-const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
@@ -7,7 +6,7 @@ const inputSubmit = 'button[type="submit"]';
 
 const filePath = 'photoS.jpg'
 
-const pathCSV = `${gitPathProject}/fixtures/AssistHomework-namefile.csv`;
+const pathCSV = `cypress/fixtures/AssistHomework-namefile.csv`;
 
 describe('Test Contact form "Name field"', () => {
     before(() =>{

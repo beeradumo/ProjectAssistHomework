@@ -1,10 +1,9 @@
-const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
 const inputExperience = 'select[name="g2599-experienceinyears"]';
 
-const pathCSV = `${gitPathProject}/fixtures/AssistHomework-email.csv`;
+const pathCSV = `cypress/fixtures/AssistHomework-email.csv`;
 
 
 

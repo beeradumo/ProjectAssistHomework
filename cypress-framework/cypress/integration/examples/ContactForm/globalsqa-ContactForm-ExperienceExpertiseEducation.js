@@ -1,4 +1,3 @@
-const gitPathProject = 'C:/Users/Radu/Documents/GitHub/ProjectAssistHomework/cypress-framework/cypress';
 
 const inputNume = '#g2599-name';
 const inputEmail = '#g2599-email';
@@ -8,7 +7,7 @@ const inputEducation = 'label[class="grunion-radio-label radio"]';
 const inputComment = 'textarea[name="g2599-comment"]';
 const inputSubmit = 'button[type="submit"]';
 
-const pathCSV = `${gitPathProject}/fixtures/AssistHomework-EEE.csv`;
+const pathCSV = `cypress/fixtures/AssistHomework-EEE.csv`;
 
 describe('Test Contact form "Experience select"', () => {
     before(() =>{

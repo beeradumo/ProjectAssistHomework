@@ -5,7 +5,7 @@ let InvalidDataC = require(`../../../fixtures/dataComm.json`);
 let InvalidDataE = require(`../../../fixtures/dataEmail.json`);
 let InvalidDataW = require(`../../../fixtures/dataWebsite.json`);
 
-const pathCSV = `cypress/fixture/AssistHomework-Dynamic.csv`;
+const pathCSV = `cypress/fixtures/AssistHomework-Dynamic.csv`;
 const filePath = 'photoS.jpg'
 
 const inputNume = '#g2599-name';
