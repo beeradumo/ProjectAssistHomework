@@ -16,10 +16,8 @@ describe('Test the WIDGETS menu', () => {
                 .should(iframe => expect(iframe.contents().find('body')).to.exist)
                 .then(iframe => cy.wrap(iframe.contents().find('body')))
                 .within({}, callback)
+        })
     })
-    })
-
-    
 
     it('TOOLTIP :: Image Based', () => {
 
@@ -28,7 +26,9 @@ describe('Test the WIDGETS menu', () => {
         const viena = 'a[href="https://maps.google.com/maps?q=vienna,+austria&z=11"]';
         const londra ='a[href="https://maps.google.com/maps?q=london,+england&z=11"]';
 
-        cy.get('iframe.demo-frame.lazyloaded', { timeout: 10 * 1000 }).iframe(() => {
+        cy.get('iframe.demo-frame.lazyloaded', { timeout: 10 * 1000 })
+            .should('have.attr', 'data-src', '../../demoSite/practice/tooltip/custom-content.html').iframe(() => {
+
             cy.get('h3').find(viena)
                 .should('have.text', 'Vienna, Austria').and('have.attr', 'data-geo')
             cy.get('h3').find(viena).trigger('mouseover').should('have.attr', 'aria-describedby')
@@ -49,7 +49,8 @@ describe('Test the WIDGETS menu', () => {
 
         cy.get('li[id="Video Based"]').click({force: true}).should('have.class', 'resp-tab-item resp-tab-active').and('have.attr', 'aria-controls', 'tab_item-1')
         
-        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000})
+            .should('have.attr', 'data-src', '../../demoSite/practice/tooltip/video-player.html').iframe(() => {
 
             cy.get('button').eq(0).contains('Like')
                 .should('have.prop', 'title', 'I like this').and('have.class', 'ui-widget ui-controlgroup-item ui-button ui-corner-left')
@@ -88,7 +89,8 @@ describe('Test the WIDGETS menu', () => {
 
         cy.get('li[id="Forms Based"]').click({force: true}).should('have.class', 'resp-tab-item resp-tab-active').and('have.attr', 'aria-controls', 'tab_item-2')
 
-        cy.get('iframe.demo-frame.lazyloaded', { timeout: 10 * 1000 }).iframe(() => {
+        cy.get('iframe.demo-frame.lazyloaded', { timeout: 10 * 1000 })
+            .should('have.attr', 'data-src', '../../demoSite/practice/tooltip/forms.html').iframe(() => {
 
             cy.get('input#firstname').should('have.prop', 'title', 'Please provide your firstname.')
                 .trigger('mouseover').should('have.attr', 'aria-describedby', 'ui-id-1')

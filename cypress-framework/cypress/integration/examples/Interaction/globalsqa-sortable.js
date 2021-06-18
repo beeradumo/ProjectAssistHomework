@@ -25,7 +25,8 @@ describe('Test the INTERACTION menu', () => {
         .should('have.text', 'Portlets').and('have.attr', 'aria-controls', 'tab_item-0').click({force: true})
         cy.url().should('contain', '#Portlets')
 
-        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000})
+            .should('have.attr', 'data-src', '../../demoSite/practice/sortable/portlets.html').iframe(() => {
         
             cy.get('div[class="column ui-sortable"]').eq(0).as('firstList')
 
@@ -68,9 +69,10 @@ describe('Test the INTERACTION menu', () => {
 
         cy.url().should('contain', '#Multiple%20Lists')
 
-            cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+            cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000})
+                .should('have.attr', 'data-src', '../../demoSite/practice/sortable/connect-lists.html').iframe(() => {
                 cy.wait(2000)
-                cy.get('ul#sortable1').should('have.class', 'connectedSortable ui-sortable').as('sortable1')
+                cy.get('ul#sortable1.connectedSortable.ui-sortable').should('have.class', 'connectedSortable ui-sortable').as('sortable1')
                 
                 cy.get('@sortable1').find('li').should('have.class', 'ui-state-default ui-sortable-handle').should('have.length', 5)
 
@@ -166,7 +168,8 @@ describe('Test the INTERACTION menu', () => {
 
         cy.url().should('contain', '#Simple%20List')
 
-            cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+            cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000})
+                .should('have.attr', 'data-src', '../../demoSite/practice/sortable/default.html').iframe(() => {
                 cy.wait(2000)
 
                 cy.get('ul#sortable').should('have.class', 'ui-sortable').as('sortable')
@@ -183,14 +186,41 @@ describe('Test the INTERACTION menu', () => {
 
                 cy.get('@itemS1')
                     .trigger('mousedown', { which: 1, pageX: 8, pageY: 8 })
-                    .trigger('mousemove', { which: 1, pageX: 8, pageY: 236})
+                    .trigger('mousemove', { which: 1, pageX: 8, pageY: 270})
                     .trigger('mouseup')
-                        cy.get('@sortable').find('li').eq(6).should('contain','Item 1')
+                        cy.get('@sortable').find('li').eq(6).should('have.text','Item 1')
             })
     }) 
 
-    it('Sortable :: GRID SORTING', () => {
+    it.only('Sortable :: GRID SORTING', () => {
 
-        
+        cy.get('li[id="Grid Sorting"]')
+        .contains('Grid Sorting').click({force: true})
+        .should('have.class', 'resp-tab-item resp-tab-active')
+        .and('have.attr', 'aria-controls', 'tab_item-3')
+
+        cy.get('iframe.demo-frame.lazyloaded')
+            .should('have.attr', 'data-src', '../../demoSite/practice/sortable/display-grid.html', {timeout: 10 * 1000}).iframe(() => {
+
+                cy.get('ul#sortable').should('have.class', 'ui-sortable').as('sortableG')
+                cy.get('@sortableG').find('li').should('have.class', 'ui-state-default ui-sortable-handle')
+
+                cy.get('@sortableG').find('li').first().contains('1').should('contain', 1).as('n1')
+                cy.get('@sortableG').find('li').last().contains('12').should('contain', 12)
+                cy.get('@n1')
+                    .trigger('mousedown', { which: 1, pageX: 8, pageY: 8 })
+                    .trigger('mousemove', { which: 1, pageX: 250, pageY: 265})
+                    .trigger('mouseup', {force: true})
+                        cy.get('@sortableG').find('li').last().contains('1').should('contain', 1).and('have.attr', 'style')
+                
+                cy.get('@sortableG').find('li').first().contains('2').as('n2')
+                cy.get('@sortableG').find('li').last().contains('1').should('contain', 1)
+                cy.get('@n2')
+                    .trigger('mousedown', { which: 1, pageX: 8, pageY: 8 })
+                    .trigger('mousemove', { which: 1, pageX: 235, pageY: 222})
+                    .trigger('mouseup', {force: true})
+                        cy.get('@sortableG').find('li').eq(10).contains('2').should('contain',2).and('have.attr', 'style')
+            })
+
     }) 
 })

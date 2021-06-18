@@ -17,14 +17,16 @@ Teme optionale
 Interaction
     globalsqa-sortable.js
 
-
+        1 din 7 teste functioneaza pe calculatorul meu, testat pe alt calculator nu functioneaza deloc
 
 Widgets
     globalsqa-spinner.js
 
-        Nu inteleg de ce 1 din n teste cu nimic cod modificat, functioneaza, restul esueaza
-
-        Eu presupun ca din cauza ca este rulat in 'iframe', si doua pagini de 'iframe' diferite folosesc acelasi input cu acelasi nume si aceeasi clasa, se intampla sa esueze. 
+        1 din 10 teste functioneaza pe calculatorul meu, testat pe alt calculator nu functioneaza deloc 
 
     globalsqa-tooltip.js
+
+        1 din 5 teste functioneaza pe calculatorul meu, testat pe alt calculator nu functioneaza deloc
+
+
 

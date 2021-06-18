@@ -39,46 +39,47 @@ cy.writeFile(pathCSV, `1 ,Verify "Currency" tab active ,Testing "Currency" tab t
             cy.get('p').eq(0).find('input#spinner')
                 .should('have.value', '$5.00').should('have.class', 'ui-spinner-input')
                 .should('have.attr', 'aria-valuemin', 5).should('have.attr', 'aria-valuenow', 5).and('have.attr','aria-valuemax', 2500)
-cy.writeFile(pathCSV, `2 ,Verify "Amount to donate" field ,Default amount need to be $5.00 ,1)Click on Currency tab ,  ,Amount to donate field shoud have default $5.00 ,Amount to donate field have default $5.00 ,Cypress ,Pass\n`, {flag:'a+'})
-                    
-                cy.get('p').eq(1).find('select#currency').select('en-US').should('contain.text', 'US $')
-cy.writeFile(pathCSV, `3 ,Verify "Currency to donate" field ,Default value need to be US $ ,1)Click on Currency tab ,  ,Currency to donate field shoud have default US $ ,Currency to donate field have default US $ ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `2 ,Verify "Amount to donate" field ,Default amount need to be $5.00 ,1)Click on Currency tab ,  ,Amount to donate field should have default $5.00 ,Amount to donate field have default $5.00 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `2' ,Verify "Amount to donate" field ,Finding "Amount to donate" input ,1)Click on Currency tab , 'data-src=../../demoSite/practice/spinner/currency.html' ,iframe Currency should have length of 2 elements ,iframe Currency have length of 2 elements ,Cypress ,Pass\n`, {flag:'a+'})                    
+               
+            cy.get('p').eq(1).find('select#currency').select('en-US').should('contain.text', 'US $')
+cy.writeFile(pathCSV, `3 ,Verify "Currency to donate" field ,Default value need to be US $ ,1)Click on Currency tab ,  ,Currency to donate field should have default US $ ,Currency to donate field have default US $ ,Cypress ,Pass\n`, {flag:'a+'})
 
                 cy.get('a[class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"]')
                 .should('have.class', 'ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only').click({force: true})
-cy.writeFile(pathCSV, `4 ,Verify "Increase arrow" field ,Up arrow need to increase by 25.00 ,1)Click on Up arrow ,  ,Amount to donate field shoud be increased by 25 ,Amount to donate field is increased by 25 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `4 ,Verify "Increase arrow" field ,Up arrow need to increase by 25.00 ,1)Click on Up arrow ,  ,Amount to donate field should be increased by 25 ,Amount to donate field is increased by 25 ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(1).find('select#currency').select('de-DE').should('contain.text', 'EUR €')
-cy.writeFile(pathCSV, `5 ,Verify "Currency to donate" field ,Select de-DE need to have value EUR € ,1)Click on Currency select       2)Click on EUR € ,  ,Currency to donate field shoud have value EUR € ,Currency to donate field have value EUR € ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `5 ,Verify "Currency to donate" field ,Select de-DE need to have value EUR € ,1)Click on Currency select       2)Click on EUR € ,  ,Currency to donate field should have value EUR € ,Currency to donate field have value EUR € ,Cypress ,Pass\n`, {flag:'a+'})
 
                 cy.get('p').eq(0).find('input#spinner')
                     .should('have.value', '30,00 €').should('have.class', 'ui-spinner-input')
                     .should('have.attr', 'aria-valuemin', 5).should('have.attr', 'aria-valuenow', 30).and('have.attr','aria-valuemax', 2500)
-cy.writeFile(pathCSV, `6 ,Verify "Amount to donate" field ,Amount value need to be 30.00 € ,1)Click on Currency select       2)Click on EUR € ,  ,Amount to donate field shoud have value 30.00 € ,Amount to donate field have value 30.00 € ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `6 ,Verify "Amount to donate" field ,Amount value need to be 30.00 € ,1)Click on Currency select       2)Click on EUR € ,  ,Amount to donate field should have value 30.00 € ,Amount to donate field have value 30.00 € ,Cypress ,Pass\n`, {flag:'a+'})
  
                 cy.get('a[class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"]')
                 .should('have.class', 'ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only').click({force: true})
-cy.writeFile(pathCSV, `7 ,Verify "Increase arrow" field ,Up arrow need to increase by 25.00 ,1)Click on Up arrow ,  ,Amount to donate field shoud be increased by 25 ,Amount to donate field is increased by 25 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `7 ,Verify "Increase arrow" field ,Up arrow need to increase by 25.00 ,1)Click on Up arrow ,  ,Amount to donate field should be increased by 25 ,Amount to donate field is increased by 25 ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(1).find('select#currency').select('ja-JP').should('contain.text', 'YEN ¥')
-cy.writeFile(pathCSV, `8 ,Verify "Currency to donate" field ,Select ja-JP need to have value YEN ¥ ,1)Click on Currency select       2)Click on YEN ¥ ,  ,Currency to donate field shoud have value YEN ¥ ,Currency to donate field have value YEN ¥ ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `8 ,Verify "Currency to donate" field ,Select ja-JP need to have value YEN ¥ ,1)Click on Currency select       2)Click on YEN ¥ ,  ,Currency to donate field should have value YEN ¥ ,Currency to donate field have value YEN ¥ ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(0).find('input#spinner')
                     .should('have.value', '¥55').should('have.class', 'ui-spinner-input')
                     .should('have.attr', 'aria-valuemin', 5).should('have.attr', 'aria-valuenow', 55).and('have.attr','aria-valuemax', 2500)
-cy.writeFile(pathCSV, `9 ,Verify "Amount to donate" field ,Amount value need to be ¥55 ,1)Click on Currency select       2)Click on YEN ¥ ,  ,Amount to donate field shoud have value ¥55 ,Amount to donate field have value ¥55 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `9 ,Verify "Amount to donate" field ,Amount value need to be ¥55 ,1)Click on Currency select       2)Click on YEN ¥ ,  ,Amount to donate field should have value ¥55 ,Amount to donate field have value ¥55 ,Cypress ,Pass\n`, {flag:'a+'})
  
                 cy.get('a[class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only"]')
                 .should('have.class', 'ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only').click({force: true})
 cy.writeFile(pathCSV, `10 ,Verify "Decrease arrow" field ,Down arrow need to Decrease by 25.00 ,1)Click on Down arrow ,  ,Amount to donate field shoud decrease by 25 ,Amount to donate field is ecreased by 25 ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(1).find('select#currency').select('en-US').should('contain.text', 'US $')
-cy.writeFile(pathCSV, `11 ,Verify "Currency to donate" field ,Select en-US need to have value US $ ,1)Click on Currency select       2)Click on US $ ,  ,Currency to donate field shoud have value US $ ,Currency to donate field have value US $ ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `11 ,Verify "Currency to donate" field ,Select en-US need to have value US $ ,1)Click on Currency select       2)Click on US $ ,  ,Currency to donate field should have value US $ ,Currency to donate field have value US $ ,Cypress ,Pass\n`, {flag:'a+'})
 
                 cy.get('p').eq(0).find('input#spinner')
                     .should('have.value', '$30.00').should('have.class', 'ui-spinner-input')
                     .should('have.attr', 'aria-valuemin', 5).should('have.attr', 'aria-valuenow', 30).and('have.attr','aria-valuemax', 2500)
-cy.writeFile(pathCSV, `12 ,Verify "Amount to donate" field ,Amount value need to be $30.00 ,1)Click on Currency select       2)Click on US $ ,  ,Amount to donate field shoud have value $30.00 ,Amount to donate field have value $30.00 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `12 ,Verify "Amount to donate" field ,Amount value need to be $30.00 ,1)Click on Currency select       2)Click on US $ ,  ,Amount to donate field should have value $30.00 ,Amount to donate field have value $30.00 ,Cypress ,Pass\n`, {flag:'a+'})
 
         })
     }) 
@@ -93,7 +94,9 @@ cy.writeFile(pathCSV, `13 ,Verify "Simple Spinner" tab active ,Testing "Simple S
         cy.get('div[aria-labelledby="tab_item-1"]').should('have.class', 'single_tab_div resp-tab-content resp-tab-content-active')
             .and('have.attr', 'rel-title', 'Simple Spinner')
             
-        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000}).iframe(() => {
+        cy.get('iframe.demo-frame.lazyloaded', {timeout: 10 * 1000})
+            .should('have.attr', 'data-src','../../demoSite/practice/spinner/default.html').iframe(() => {
+
             cy.wait(4000)
             cy.get('p').should('have.length', 3, {timeout: 10 * 1000})
             cy.get('p').eq(0).find('input#spinner.ui-spinner-input')
@@ -102,6 +105,7 @@ cy.writeFile(pathCSV, `13 ,Verify "Simple Spinner" tab active ,Testing "Simple S
                 .and('have.value', '')
 
 cy.writeFile(pathCSV, `14 ,Verify "Select a value" field ,Testing "Select a value" to be default '' ,1)Click on Simple Spinner tab , 'https://www.globalsqa.com/demo-site/spinner/#Simple%20Spinner' ,Select a value field should have default value '' ,Select a value field have default value '' ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `14' ,Verify "Select a value" field ,Finding "Select a value" input ,1)Click on Simple Spinner tab , 'data-src=../../demoSite/practice/spinner/default.html' ,iframe Simple Spinner should have length of 3 elements ,On my computer 1 of 10 test Pass; On other computers never Pass ,Cypress ,Fail\n`, {flag:'a+'})
             
                 cy.get('a[class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only"]')
                 .should('have.class', 'ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only').click({force: true})
@@ -109,7 +113,7 @@ cy.writeFile(pathCSV, `14 ,Verify "Select a value" field ,Testing "Select a valu
             cy.get('p').eq(0).find('input#spinner.ui-spinner-input')
                 .should('have.class', 'ui-spinner-input').should('have.value', 1)
                 .and('have.attr', 'aria-valuenow', 1)
-cy.writeFile(pathCSV, `15 ,Verify "Increase arrow" field ,Up arrow need to increase "Select a value" field by 1 ,1)Click on Up arrow ,  ,Select a value field shoud be increase by 1 ,Select a value field is increased by 1 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `15 ,Verify "Increase arrow" field ,Up arrow need to increase "Select a value" field by 1 ,1)Click on Up arrow ,  ,Select a value field should be increase by 1 ,Select a value field is increased by 1 ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(1).find('button#disable').contains('Toggle disable/enable')
                 .should('have.class', 'ui-button ui-corner-all ui-widget')
@@ -120,7 +124,7 @@ cy.writeFile(pathCSV, `15 ,Verify "Increase arrow" field ,Up arrow need to incre
 
             cy.get('p').eq(1).find('button#disable').contains('Toggle disable/enable').click({force: true})
                 cy.get('input#spinner.ui-spinner-input').should('not.have.attr', 'disabled')
-cy.writeFile(pathCSV, `16 ,Verify "Toggle disable/enable" button ,Need to disable or enable "Select a value" field ,1)Click on Toggle disable/enable button         2)Click on Toggle disable/enable button,  ,Select a value field shoud be disable and after enable ,Select a value field is disable and after enable ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `16 ,Verify "Toggle disable/enable" button ,Need to disable or enable "Select a value" field ,1)Click on Toggle disable/enable button         2)Click on Toggle disable/enable button,  ,Select a value field should be disable and after enable ,Select a value field is disable and after enable ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(1).find('button#destroy').contains('Toggle widget')
                 .should('have.class', 'ui-button ui-corner-all ui-widget')
@@ -156,7 +160,7 @@ cy.writeFile(pathCSV, `19 ,Verify "Set value to 5" button ,"Select a value" fiel
             cy.get('p').eq(0).find('input#spinner.ui-spinner-input')
                 .should('have.class', 'ui-spinner-input').should('have.value', 3)
                 .and('have.attr', 'aria-valuenow', 3)
-cy.writeFile(pathCSV, `20 ,Verify "Decrease arrow" field ,Down arrow need to decrease "Select a value" field by 1 ,1)Click on Down arrow         2)Click on Down arrow , '3' ,Select a value field shoud be decrease by 1 ,Select a value field is decreased by 1 ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `20 ,Verify "Decrease arrow" field ,Down arrow need to decrease "Select a value" field by 1 ,1)Click on Down arrow         2)Click on Down arrow , '3' ,Select a value field should be decrease by 1 ,Select a value field is decreased by 1 ,Cypress ,Pass\n`, {flag:'a+'})
 
             cy.get('p').eq(2).find('button#getvalue').contains('Get value')
                 .should('have.class', 'ui-button ui-corner-all ui-widget')
@@ -166,7 +170,7 @@ cy.writeFile(pathCSV, `20 ,Verify "Decrease arrow" field ,Down arrow need to dec
             cy.on('window:alert', (str) => {
                 expect(str).to.be.equal('3')
             })
-cy.writeFile(pathCSV, `21 ,Verify "Get value" button ,Window alert with value from "Select a value" field ,1)Click on Get value button , '3' ,Window alert with value from Select a value field shoud be visible ,Window alert with value from Select a value field is be visible ,Cypress ,Pass\n`, {flag:'a+'})
+cy.writeFile(pathCSV, `21 ,Verify "Get value" button ,Window alert with value from "Select a value" field ,1)Click on Get value button , '3' ,Window alert with value from Select a value field should be visible ,Window alert with value from Select a value field is be visible ,Cypress ,Pass\n`, {flag:'a+'})
            
         })
     }) 
